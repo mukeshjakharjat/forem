@@ -182,6 +182,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
   --mount=type=cache,target=/var/lib/apt,sharing=locked \
   --mount=type=tmpfs,target=/var/log \
   rm -f /etc/apt/apt.conf.d/docker-clean; \
+  rm -f /etc/apt/sources.list.d/nodesource.list; \
   echo 'Binary::apt::APT::Keep-Downloaded-Packages "true";' > /etc/apt/apt.conf.d/keep-cache; \
   apt-get update -qq && \
   DEBIAN_FRONTEND=noninteractive apt-get -yq dist-upgrade && \
